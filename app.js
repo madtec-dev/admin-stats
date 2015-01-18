@@ -48,7 +48,8 @@ app.use(flash());
 
 // ROUTES ========================================
 require('./routes/index.js')(app, passport);
-// USER schema ==========================
+
+
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
