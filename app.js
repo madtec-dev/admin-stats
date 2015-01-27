@@ -12,6 +12,9 @@ var mongoose = require('mongoose');
 
 var configDB = require('./config/database.js');
 
+var adminRoutes = require('./routes/admin');
+var routes = require('./routes/index');
+
 // DB ===================================
 mongoose.connect(configDB.url);
 var db = mongoose.connection;
@@ -47,8 +50,9 @@ app.use(passport.session());
 app.use(flash());
 
 // ROUTES ========================================
-require('./routes/index.js')(app, passport);
-
+app.use('/', routes);
+app.use('/admin', adminRoutes);
+require('./routes/auth.js')(app, passport)
 
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

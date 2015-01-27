@@ -8,7 +8,7 @@ block content
         | Login
       if(message.length > 0)
         div.alert.alert-danger #{message}
-      form(action="/login" method="post")
+      form(action="/admin/login" method="post")
         div.form-group
           label Email
           input.form-control(type="text" name="email" placeholder="Username")
@@ -19,6 +19,6 @@ block content
           button.btn.btn-warning.btn-lg(type="submit") Login
       hr
       p Need an account? 
-        a(href="/signup") Signup
+        a(href="/admin/signup") Signup
 
 
